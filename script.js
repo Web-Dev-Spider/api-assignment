@@ -74,3 +74,25 @@ document.getElementById("btnApi").addEventListener("click", () => {
     });
   }
 });
+
+async function randomAsync() {
+  try {
+    const myPromise = new Promise((resolve, reject) => {
+      const randNum = Math.floor(Math.random() * 10);
+      document.getElementById("randNum").textContent = randNum;
+      console.log(randNum);
+      if (randNum < 2) resolve("Operation Success");
+      else reject("Operation failed");
+    });
+    const result = await myPromise;
+    console.log(result);
+    document.getElementById("result").textContent = result;
+  } catch (error) {
+    document.getElementById("result").textContent = error;
+  }
+}
+
+document.getElementById("randumAsync").addEventListener("click", () => {
+  reset();
+  randomAsync();
+});
