@@ -25,8 +25,8 @@ function displayData(data) {
 
   data.forEach((user) => {
     let userDataEl = document.createElement("p");
-    console.log(user);
-    console.log(user.company.name);
+    // console.log(user);
+    // console.log(user.company.name);
 
     userDataEl.innerHTML =
       `User id: ${user.id}, User Name: ${user.name} <br>` +
@@ -35,3 +35,18 @@ function displayData(data) {
     container.appendChild(userDataEl);
   });
 }
+
+const newPromise = new Promise((resolve, reject) => {
+  const randNum = Math.floor(Math.random() * 10);
+  console.log(randNum);
+  if (randNum < 5) resolve("Operation Success");
+  else reject("Operation failed");
+});
+
+newPromise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
